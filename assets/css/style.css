@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+:root {
+  --header-bg: #10375c;
+}
 html {
   font-size: 62.5%;
 }
@@ -9,4 +12,88 @@ html {
 body {
   font-size: 1.6rem;
   font-family: "Sora", sans-serif;
+}
+
+/*========common==============================================================  */
+.container {
+  width: 1170px;
+  /* chừa mỗi bên lề 24px */
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+}
+
+a {
+  /* bỏ gạch chân thẻ a */
+  text-decoration: none;
+}
+.btn {
+  /* display: inline-block; tạo khối để nhận kích thước cho thẻ inline */
+  display: inline-block;
+  min-width: 205px;
+  line-height: 60px;
+  border-radius: 999px;
+  background: #2e80ce;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+/*========header==============================================================  */
+.header {
+  padding-top: 30px;
+  background: var(--header-bg);
+  /*khung nhìn bằng 100% khung nhìn màn hình */
+  min-height: 100vh;
+}
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__list {
+  display: flex;
+}
+
+.header__action--login,
+.navbar__link {
+  /* padding trên dưới 8 trái phải 21 */
+  padding: 8px 21px;
+  color: #c9d2da;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.75; /*28/16*100 = 175% */
+}
+.navbar__link:hover,
+.navbar__link--active {
+  color: #fff;
+  font-style: normal;
+  text-shadow: 1px 0 0 currentColor;
+  /*dùng text-shadow thay thế font-weight: 400; */
+}
+.navbar__link--active::before {
+  content: "";
+  /* tạo khối có thể nhận dc kích thước */
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  top: -3px;
+  /* sử dụng position trong trường hợp này cho phép định vị và dịch chuyển phần tử dấu chấm tròn theo ý muốn */
+  position: relative;
+  right: 8px;
+}
+
+.header__action--signup {
+  min-width: 144px;
+  line-height: 44px;
+  font-size: 1.6rem;
+}
+.header__action--login {
+  margin-right: 7px;
 }
